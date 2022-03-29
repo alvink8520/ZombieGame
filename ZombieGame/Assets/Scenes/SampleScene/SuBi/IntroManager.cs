@@ -7,8 +7,9 @@ public class IntroManager : MonoBehaviour
 {
     public GameObject StartPanel;
     public GameObject IntroPanel;
+    public GameObject menuSet;
     public int AniTime;
-
+    
 
     // Start is called before the first frame update
     void Start()
@@ -40,9 +41,22 @@ public class IntroManager : MonoBehaviour
         SceneManager.LoadScene("CreditsScene");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void GoMainScene()
     {
-        
+        SceneManager.LoadScene("IntroScene");
     }
+
+  
+    
+   void Update()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if (menuSet.activeSelf)
+                menuSet.SetActive(false);
+            else
+                menuSet.SetActive(true);
+        }
+    }
+
 }
