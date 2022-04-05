@@ -5,13 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Start.unity
     guid: 5af7345bfa1d29e4889dbc80f1199520
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Game_1.unity
     guid: 64ce685e5150f5a4fb5a9cf91d52317d
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Scenes/SampleScene/Alvin/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 9744e264add5a044090175a619e02c73
   - enabled: 0
@@ -134,4 +137,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene/SuBi/CreditsScene.unity
     guid: c1c0e437c0040644ba140ea1ec886f62
+  - enabled: 1
+    path: Assets/Scenes/SampleScene/SuBi/PauseScene.unity
+    guid: 79496cf042d03204aa55ea95c443ffbf
   m_configObjects: {}
