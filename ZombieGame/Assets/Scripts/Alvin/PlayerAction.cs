@@ -46,6 +46,10 @@ public class PlayerAction : MonoBehaviour
         {
             return;
         }
+        //else if(lookVector.magnitude !=0)
+        //{
+        //    OnAttack(InputValue);
+        //}
 
         float lookRadian =  Mathf.Atan2(lookVector.y, lookVector.x);
 
@@ -53,14 +57,10 @@ public class PlayerAction : MonoBehaviour
 
         print(rotationrigidbody.rotation);
 
-
-
-
     }
 
     public void OnAttack(InputValue attackInput)
     {
-        
-
+        print("Attack!!");
     }
 }
