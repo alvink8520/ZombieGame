@@ -7,14 +7,14 @@ public class Weapon
 {
     public string name;
     public int attackSpeed;
+    public int KnockBack;
     public int minDamage;
     public int maxDamage;
 }
 
 
-public class MeleeWeapons : MonoBehaviour
+public class Weapons : MonoBehaviour
 {
-
     public List<Weapon> weapons;
     public List<Weapon> rangedweapons;
 }
