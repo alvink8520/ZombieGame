@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 114632726916512702}
   - component: {fileID: 114398865862223764}
   m_Layer: 0
-  m_Name: LoftHandgun
+  m_Name: Handgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
