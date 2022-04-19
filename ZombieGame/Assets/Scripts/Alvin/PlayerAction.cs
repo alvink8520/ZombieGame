@@ -92,6 +92,13 @@ public class PlayerAction : MonoBehaviour
 
     public void Attack()
     {
+        if(meleeAttack == true)
+        {
+            
+        }
+        else if (rangedAttack == true)
+        {
 
+        }
     }
 }
