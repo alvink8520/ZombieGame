@@ -12,6 +12,9 @@ public class PlayerAction : MonoBehaviour
     public float moveSpeed = 5f;
     public string weapontype;
 
+    public bool meleeAttack;
+    public bool rangedAttack;
+
     private Vector2 lookVector;
     private Vector2 moveVector;
 
@@ -94,11 +97,11 @@ public class PlayerAction : MonoBehaviour
     {
         if(meleeAttack == true)
         {
-            
+            return;
         }
         else if (rangedAttack == true)
         {
-
+            return;
         }
     }
 }

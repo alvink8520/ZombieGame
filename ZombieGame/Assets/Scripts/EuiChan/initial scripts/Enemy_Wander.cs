@@ -13,7 +13,7 @@ public class Enemy_Wander : MonoBehaviour
     public float currentSpeed;
 
     public float directionChangeInterval;
-    public bool followPlayer;
+    public static bool followPlayer;
 
     Coroutine moveCoroutine;
     CircleCollider2D CircleCollider2D;
