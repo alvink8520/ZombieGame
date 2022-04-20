@@ -1800,6 +1800,8 @@ MonoBehaviour:
   rotationrigidbody: {fileID: 905499955}
   moveSpeed: 5
   weapontype: 
+  meleeAttack: 0
+  rangedAttack: 0
 --- !u!114 &905499958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2750,7 +2752,6 @@ MonoBehaviour:
   wanderSpeed: 2
   currentSpeed: 2
   directionChangeInterval: 0
-  followPlayer: 1
 --- !u!95 &1631112195
 Animator:
   serializedVersion: 3
@@ -2761,7 +2762,7 @@ Animator:
   m_GameObject: {fileID: 1631112193}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2973e6778dac04d3dbbf7fd78a5cd5f7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
