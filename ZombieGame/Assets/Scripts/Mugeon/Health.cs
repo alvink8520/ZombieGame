@@ -15,6 +15,15 @@ public class Health : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            health -= 1;
+        }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            health += 1;
+        }
+
         if (health > numOfHearts)
         {
             health = numOfHearts;
