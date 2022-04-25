@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6734692353459625989}
   - component: {fileID: 6734692353459625988}
   - component: {fileID: 6734692353459625991}
+  - component: {fileID: 101512649210272579}
   - component: {fileID: 6734692353459625990}
   - component: {fileID: 6734692353459625993}
   m_Layer: 0
@@ -124,6 +125,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 5.57
+--- !u!58 &101512649210272579
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6734692353459625992}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.49
 --- !u!95 &6734692353459625990
 Animator:
   serializedVersion: 3
@@ -159,4 +176,3 @@ MonoBehaviour:
   wanderSpeed: 2
   currentSpeed: 2
   directionChangeInterval: 0.5
-  followPlayer: 1
