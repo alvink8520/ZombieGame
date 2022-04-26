@@ -2357,7 +2357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1133318452
 Transform:
   m_ObjectHideFlags: 0
@@ -3451,6 +3451,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5257990465974546493, guid: 197ed24d059fcfa4eb64c98c3c877bcd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5304390142354332969, guid: 197ed24d059fcfa4eb64c98c3c877bcd,
         type: 3}
       propertyPath: m_Name
@@ -3461,7 +3466,8 @@ PrefabInstance:
       propertyPath: DropWeaponPrefab
       value: 
       objectReference: {fileID: 2687109828819756290}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5257990465974546493, guid: 197ed24d059fcfa4eb64c98c3c877bcd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 197ed24d059fcfa4eb64c98c3c877bcd, type: 3}
 --- !u!1 &2687109828819756290 stripped
 GameObject:
@@ -3469,6 +3475,32 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2687109828819756289}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &2687109828819756292
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2687109828819756290}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2}
+  m_EdgeRadius: 0
 --- !u!1001 &7615913505622043701
 PrefabInstance:
   m_ObjectHideFlags: 0

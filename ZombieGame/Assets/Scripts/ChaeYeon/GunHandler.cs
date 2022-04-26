@@ -39,6 +39,10 @@ public class GunHandler : MonoBehaviour
         Destroy(gameObject);
         return;
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        GameObject.Destroy(gameObject);
+    }
 }
 
 //YouTube Channel Twin Gaming Studios
