@@ -11,12 +11,14 @@ public class Enemy_Wander : MonoBehaviour
     public float pursuitSpeed;
     public float wanderSpeed;
     public float currentSpeed;
-
     public float directionChangeInterval;
+    public float attackRange;
     public static bool followPlayer;
 
     Coroutine moveCoroutine;
-    CircleCollider2D CircleCollider2D;
+
+    CircleCollider2D _circleCollider2D;
+
     Rigidbody2D Rb;
     Animator animator;
 
@@ -30,7 +32,7 @@ public class Enemy_Wander : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         Rb = GetComponent<Rigidbody2D>();
-        CircleCollider2D = GetComponent<CircleCollider2D>();
+        _circleCollider2D = GetComponent<CircleCollider2D>();
         currentSpeed = wanderSpeed;
         StartCoroutine(WanderRoutine());
     }
@@ -38,7 +40,7 @@ public class Enemy_Wander : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawLine(Rb.position, endPosition, Color.red);
+        Debug.DrawLine(Rb.position, endPosition, Color.green);
     }
 
     public IEnumerator WanderRoutine()
@@ -90,13 +92,21 @@ public class Enemy_Wander : MonoBehaviour
                 Rb.MovePosition(newPosition);
                 remainingDistance = (transform.position - endPosition).sqrMagnitude;
             }
+            if(remainingDistance >= attackRange)
+            {
+                animator.SetBool("isAttack", true);
+            }
+            else if(remainingDistance < attackRange)
+            {
+                animator.SetBool("isAttack", false);
+            }
             yield return new WaitForFixedUpdate();
         }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Player") && followPlayer)
+        if(collision.gameObject.CompareTag("Player"))
         {
             currentSpeed = pursuitSpeed;
             targetTransform = collision.gameObject.transform;
@@ -109,11 +119,13 @@ public class Enemy_Wander : MonoBehaviour
         }
     }
 
+
+
     void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            animator.SetBool("isMove", false);
+            animator.SetBool("isMove", false); // control animation state should be false
             currentSpeed = wanderSpeed;
 
             if(moveCoroutine != null)
@@ -126,9 +138,12 @@ public class Enemy_Wander : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        if(CircleCollider2D != null)
+        if(_circleCollider2D != null)
         {
-            Gizmos.DrawWireSphere(transform.position, CircleCollider2D.radius);
+            Gizmos.DrawWireSphere(transform.position, _circleCollider2D.radius);
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, attackRange);
+
         }
     }
 }

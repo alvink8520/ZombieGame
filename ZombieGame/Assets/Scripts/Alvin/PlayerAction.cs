@@ -35,6 +35,15 @@ public class PlayerAction : MonoBehaviour
             myAnimator.SetBool("IsWalking", true);
         }
 
+        if (lookVector.magnitude != 0)
+        {
+            myAnimator.SetBool("IsMeleeAtk", true);
+        }
+        else if (moveVector.magnitude == 0)
+        {
+            myAnimator.SetBool("IsMeleeAtk", false);
+        }
+
     }
 
 
