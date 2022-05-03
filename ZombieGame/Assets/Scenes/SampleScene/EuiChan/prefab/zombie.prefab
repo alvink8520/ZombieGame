@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6734692353459625990}
   - component: {fileID: 6734692353459625993}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
