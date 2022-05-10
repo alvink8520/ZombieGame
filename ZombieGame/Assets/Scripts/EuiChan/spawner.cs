@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class spawner : MonoBehaviour
+/*public class spawner : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform[] spawnPoints;
@@ -24,4 +24,39 @@ public class spawner : MonoBehaviour
             Instantiate(enemyPrefabs[randEnemy], spawnPoints[randSpawnPoint].position, transform.rotation);
         }
     } 
+}
+*/
+public class spawner : MonoBehaviour
+{
+    public Transform[] spawnPoints;
+    public GameObject[] enemyPrefabs;
+
+    private int rand;
+
+    public float startTimeBtwSpawns;
+    private float timeBtwSpawns;
+    // Start is called before the first frame update
+    void Start()
+    {
+        timeBtwSpawns = startTimeBtwSpawns;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (timeBtwSpawns <= 0)
+        {
+            int randEnemy = Random.Range(0, enemyPrefabs.Length);
+            int randSpawnPoint = Random.Range(0, spawnPoints.Length);
+
+            Instantiate(enemyPrefabs[randEnemy], spawnPoints[randSpawnPoint].position, transform.rotation);
+
+            timeBtwSpawns = startTimeBtwSpawns;
+        }
+        else
+        {
+            timeBtwSpawns -= Time.deltaTime;
+        }
+
+    }
 }

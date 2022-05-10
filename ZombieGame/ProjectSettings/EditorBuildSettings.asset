@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Start.unity
     guid: 5af7345bfa1d29e4889dbc80f1199520
   - enabled: 1
-    path: Assets/Scenes/Game.unity
+    path: Assets/Scenes/SampleScene/ChaeYeon/Game.unity
     guid: fadcfaa98ebc96d409ace2c9b6929194
   - enabled: 0
     path: Assets/Scenes/Game_1.unity
