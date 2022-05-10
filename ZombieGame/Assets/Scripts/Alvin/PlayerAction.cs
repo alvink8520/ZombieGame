@@ -8,9 +8,10 @@ public class PlayerAction : MonoBehaviour
     public Animator myAnimator;
     public Rigidbody2D myrigidbody;
     public Rigidbody2D rotationrigidbody;
+    public BoxCollider2D mycollider2D;
 
     public float moveSpeed = 5f;
-    public string weapontype;
+    public string weapontype    ;
 
     public bool meleeAttack;
     public bool rangedAttack;
@@ -22,6 +23,7 @@ public class PlayerAction : MonoBehaviour
     {
         myrigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
+        mycollider2D = GetComponent<BoxCollider2D>();
     }
 
     private void FixedUpdate()
@@ -80,7 +82,7 @@ public class PlayerAction : MonoBehaviour
         }
         else if (lookVector.magnitude == 0 )
         {
-            Attack();
+            Attack(mycollider2D);
             print("Attack!!");
         }
         //else if(lookVector.magnitude !=0)
@@ -92,20 +94,41 @@ public class PlayerAction : MonoBehaviour
 
         rotationrigidbody.rotation = (lookRadian * Mathf.Rad2Deg -90);
 
-        print(rotationrigidbody.rotation);
+        //print(rotationrigidbody.rotation);
 
     }
 
     public void OnAttack(InputValue attackInput)
     {
-        Attack();
+        Attack(mycollider2D);
         print("Attack!!");
     }
 
-    public void Attack()
+
+    public void OnTriggerStay2D(Collider2D other)
     {
-        if(meleeAttack == true)
+        if (lookVector.magnitude != 0 && other.tag == "Enemy")
         {
+            GameObject.Destroy(other.gameObject);
+        }
+    }
+
+    public void Attack(Collider2D other)
+    {
+        GameObject.Destroy(other);
+        print("hit");
+        if (other.tag == "Enemy")
+        {
+            GameObject.Destroy(other);
+            print("hit");
+        }
+        if (meleeAttack == true)
+        {
+            if(other.tag == "Enemy")
+            {
+                GameObject.Destroy(other);
+                print("hit");
+            }
             return;
         }
         else if (rangedAttack == true)
