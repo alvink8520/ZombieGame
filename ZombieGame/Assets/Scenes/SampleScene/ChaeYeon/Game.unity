@@ -1716,7 +1716,6 @@ GameObject:
   - component: {fileID: 905499957}
   - component: {fileID: 905499959}
   - component: {fileID: 905499960}
-  - component: {fileID: 905499961}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1907,27 +1906,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &905499961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 905499953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73aa64a258006264faa6ec63b652fcf3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EquipPrimary: 49
-  EquipSecondary: 50
-  Primary: {fileID: 1611056034}
-  Secondary: {fileID: 1763324571}
-  CurrentWeapon: 
-  DropPrefab: {fileID: 0}
-  WeaponInHand: {fileID: 0}
-  hasweapon: 0
-  GunsList: []
 --- !u!1 &913841865
 GameObject:
   m_ObjectHideFlags: 0
@@ -3248,6 +3226,36 @@ Transform:
   m_Father: {fileID: 1013442840}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1796156934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1796156935}
+  m_Layer: 0
+  m_Name: sPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1796156935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796156934}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7615913505622043705}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1966413850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3463,6 +3471,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6773263295736998751, guid: 197ed24d059fcfa4eb64c98c3c877bcd,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773263295736998751, guid: 197ed24d059fcfa4eb64c98c3c877bcd,
+        type: 3}
       propertyPath: DropWeaponPrefab
       value: 
       objectReference: {fileID: 2687109828819756290}
@@ -3583,10 +3596,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7615913505622043702}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7893f258c84e3f94ea7b251670297a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponName: 
   DropWeaponPrefab: {fileID: 7615913505622043702}
+--- !u!4 &7615913505622043705 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5014274835183323040, guid: f05b255451d7fc14298e559fa1504da6,
+    type: 3}
+  m_PrefabInstance: {fileID: 7615913505622043701}
+  m_PrefabAsset: {fileID: 0}
