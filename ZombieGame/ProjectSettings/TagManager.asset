@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - World
   - NoMask
+  - stair
   layers:
   - Default
   - TransparentFX
