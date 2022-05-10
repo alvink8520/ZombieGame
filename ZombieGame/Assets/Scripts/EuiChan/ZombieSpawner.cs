@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class ZombieSpawner : MonoBehaviour
 {
-    private int waveNumber = 3;
     public int enemiesAmount = 0;
+    public int maxEnemyAmount = 0;
+    public int timeBetweenSpawn = 0;
+    
     public GameObject enemyPrefabs;
     public Camera cam;
+
+    float timer;
+    int waitingTime;
     //public float startTimeBtwSpawns;
     //private float timeBtwSpawns;
 
@@ -17,6 +22,9 @@ public class ZombieSpawner : MonoBehaviour
         cam = Camera.main;
         enemiesAmount = 0;
         //timeBtwSpawns = startTimeBtwSpawns;
+
+
+
     }
 
     // Update is called once per frame
@@ -24,13 +32,13 @@ public class ZombieSpawner : MonoBehaviour
     {
         float height = cam.orthographicSize +4;
         float width = height * cam.aspect;
-        if (enemiesAmount == 5)
+        if (enemiesAmount <= 5)
         {
-            waveNumber++;
-            for (int i = 0; i < waveNumber; i++)
+            for (enemiesAmount = 0; enemiesAmount < maxEnemyAmount; enemiesAmount++)
             {
                 Instantiate(enemyPrefabs, new Vector3(cam.transform.position.x + Random.Range(-width, width), 3, cam.transform.position.z + height + Random.Range(10, 30)), Quaternion.identity);
-                enemiesAmount++;
+                
+
             }
         }
 
