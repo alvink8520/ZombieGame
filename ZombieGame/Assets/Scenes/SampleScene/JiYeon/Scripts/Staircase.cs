@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Staircase : MonoBehaviour
 {
@@ -26,38 +27,48 @@ public class Staircase : MonoBehaviour
         playerrigidbody = player.GetComponent<Rigidbody2D>();
     }
 
-    void ontriggerEnter2D(Collider2D other)
+    //public string levelToLoad;
+    public Vector3 newPos;
+
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if(other == player)
+        // If the player hit the staircase
+       if(other.gameObject == player)
         {
-            player = GameObject.FindGameObjectWithTag("stair");
-            transform.position = Vector2.MoveTowards(transform.position, stair, 0.1f);
+            // MOve the player's position
+            player.transform.position = newPos;
         }
-        else if(other == player)
-        {
-            player = GameObject.FindGameObjectWithTag("stair1");
-            transform.position = Vector2.MoveTowards(transform.position, stair1, 0.1f);
-        }
-        else if (other == player)
-        {
-            player = GameObject.FindGameObjectWithTag("stair2");
-            transform.position = Vector2.MoveTowards(transform.position, stair2, 0.1f);
-        }
-        else if (other == player)
-        {
-            player = GameObject.FindGameObjectWithTag("stair3");
-            transform.position = Vector2.MoveTowards(transform.position, stair3, 0.1f);
-        }
-        else if (other == player)
-        {
-            player = GameObject.FindGameObjectWithTag("stair4");
-            transform.position = Vector2.MoveTowards(transform.position, stair4, 0.1f);
-        }
-        else if (other == player)
-        {
-            player = GameObject.FindGameObjectWithTag("stair5");
-            transform.position = Vector2.MoveTowards(transform.position, stair5, 0.1f);
-        }
+
+        //if(other == player)
+        //{
+        //    player = GameObject.FindGameObjectWithTag("stair");
+        //    transform.position = Vector2.MoveTowards(transform.position, stair, 0.1f);
+        //}
+        //else if(other == player)
+        //{
+        //    player = GameObject.FindGameObjectWithTag("stair1");
+        //    transform.position = Vector2.MoveTowards(transform.position, stair1, 0.1f);
+        //}
+        //else if (other == player)
+        //{
+        //    player = GameObject.FindGameObjectWithTag("stair2");
+        //    transform.position = Vector2.MoveTowards(transform.position, stair2, 0.1f);
+        //}
+        //else if (other == player)
+        //{
+        //    player = GameObject.FindGameObjectWithTag("stair3");
+        //    transform.position = Vector2.MoveTowards(transform.position, stair3, 0.1f);
+        //}
+        //else if (other == player)
+        //{
+        //    player = GameObject.FindGameObjectWithTag("stair4");
+        //    transform.position = Vector2.MoveTowards(transform.position, stair4, 0.1f);
+        //}
+        //else if (other == player)
+        //{
+        //    player = GameObject.FindGameObjectWithTag("stair5");
+        //    transform.position = Vector2.MoveTowards(transform.position, stair5, 0.1f);
+        //}
     }
 
     void Update()
