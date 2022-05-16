@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemSpawn : MonoBehaviour
+public class ItemSpwan : MonoBehaviour
 {
     public GameObject[] prefabs;
 

@@ -5,13 +5,13 @@ using UnityEngine;
 public class UniqueItemSpawn : MonoBehaviour
 {
     public GameObject objectToCreate;
-    public List<ItemSpawn> placesCanCreate;
+    public List<ItemSpwan> placesCanCreate;
 
     // Start is called before the first frame update
     void Start()
     {
         // Pick a random room
-        ItemSpawn RandomPlace = placesCanCreate[Random.Range(0, placesCanCreate.Count)];
+        ItemSpwan RandomPlace = placesCanCreate[Random.Range(0, placesCanCreate.Count)];
         Vector3 RandomPos = RandomPlace.GetRandomPosition();
         Instantiate(objectToCreate, RandomPos, Quaternion.identity);
 
