@@ -10,6 +10,7 @@ TagManager:
   - World
   - NoMask
   - stair
+  - BoxSpawner
   layers:
   - Default
   - TransparentFX

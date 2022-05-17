@@ -2,54 +2,69 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[System.Serializable]
+public class point
+{
+    public GameObject boxspawner;
+}
+
+
 public class ZombieSpawner : MonoBehaviour
 {
-    public int enemiesAmount = 0;
-    public int maxEnemyAmount = 0;
+    public int enemiesAmount = 0;   
+    public int maxEnemyAmount = 5;
     public int timeBetweenSpawn = 0;
     
     public GameObject enemyPrefabs;
-    public Camera cam;
+    public Camera mainCam;
+    Collider2D _collider;
 
-    float timer;
-    int waitingTime;
-    //public float startTimeBtwSpawns;
-    //private float timeBtwSpawns;
+    public List<point> SpawnerPoints;
 
-    // Use this for initialization
+    //float timer;
+    //int waitingTime;
+
+    Vector3 mainCamvector3;
+    
+
     void Start()
     {
-        cam = Camera.main;
+        mainCamvector3 = new Vector3(mainCam.orthographicSize * 2 * mainCam.aspect, mainCam.orthographicSize * 2, 0 );
         enemiesAmount = 0;
-        //timeBtwSpawns = startTimeBtwSpawns;
-
-
 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        float height = cam.orthographicSize +4;
-        float width = height * cam.aspect;
-        if (enemiesAmount <= 5)
+        if (enemiesAmount < maxEnemyAmount)
         {
-            for (enemiesAmount = 0; enemiesAmount < maxEnemyAmount; enemiesAmount++)
-            {
-                Instantiate(enemyPrefabs, new Vector3(cam.transform.position.x + Random.Range(-width, width), 3, cam.transform.position.z + height + Random.Range(10, 30)), Quaternion.identity);
-                
-
-            }
+            SpawnZombie();
         }
-
-        /*if (timeBtwSpawns <= 0)
-        {
-           
-            timeBtwSpawns = startTimeBtwSpawns;
-        }
-        else
-        {
-            timeBtwSpawns -= Time.deltaTime;
-        }*/
     }
+
+
+    void SpawnZombie()
+    {
+        int randspanwer = Random.Range(0, SpawnerPoints.Count);
+        Vector3 spawnwerpos = SpawnerPoints[randspanwer].boxspawner.transform.position;
+
+        Instantiate(enemyPrefabs, spawnwerpos, Quaternion.identity);
+
+        enemiesAmount++;
+
+        Debug.Log("spawning");
+    }
+
+    public void EnemyAmountUpdate(int addzombieamount)
+    {
+        enemiesAmount += addzombieamount;
+    }
+
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.magenta;
+    //    Gizmos.DrawWireCube(mainCam.transform.position, new Vector3(mainCamvector3.x, mainCamvector3.y, 0f));
+
+    //}
 }

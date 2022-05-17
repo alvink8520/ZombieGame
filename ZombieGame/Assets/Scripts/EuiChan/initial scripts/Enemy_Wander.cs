@@ -12,12 +12,13 @@ public class Enemy_Wander : MonoBehaviour
     public float wanderSpeed;
     public float currentSpeed;
     public float directionChangeInterval;
-    public float attackRange;
+
     public static bool followPlayer;
 
     Coroutine moveCoroutine;
 
     CircleCollider2D _circleCollider2D;
+    CapsuleCollider2D _capsuleCollider2D;
 
     Rigidbody2D Rb;
     Animator animator;
@@ -30,9 +31,11 @@ public class Enemy_Wander : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //currentAngle = Random.Range(0, 359);
         animator = GetComponent<Animator>();
         Rb = GetComponent<Rigidbody2D>();
         _circleCollider2D = GetComponent<CircleCollider2D>();
+        _capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         currentSpeed = wanderSpeed;
         StartCoroutine(WanderRoutine());
     }
@@ -61,8 +64,8 @@ public class Enemy_Wander : MonoBehaviour
 
     void ChooseNewEndPoint()
     {
-        currentAngle += Random.Range(0, 360);
-        currentAngle = Mathf.Repeat(currentAngle, 360);
+        currentAngle = Random.Range(0, 360);
+        currentAngle += Mathf.Repeat(currentAngle, 360);
         endPosition += Vector3FromAngle(currentAngle);
     }
 
@@ -71,34 +74,33 @@ public class Enemy_Wander : MonoBehaviour
         float inputAngleRadians = inputAngleDegress * Mathf.Deg2Rad;
 
         return new Vector3(Mathf.Cos(inputAngleRadians), Mathf.Sin(inputAngleRadians), 0);
+
+        //return new Vector3(Mathf.Cos(inputAngleDegress), Mathf.Sin(inputAngleDegress), 0);
     }
 
     public IEnumerator Move(Rigidbody2D rigidBodyToMove, float speed)
     {
         float remainingDistance = (transform.position - endPosition).sqrMagnitude;
+        Vector2 viewVector = endPosition - transform.position;
 
         while(remainingDistance > float.Epsilon)
         {
-            if(targetTransform != null)
+
+            float viewRadian = Mathf.Atan2(viewVector.y, viewVector.x);
+            Rb.rotation = (viewRadian * Mathf.Rad2Deg - 90);
+
+            if (targetTransform != null)
             {
                 endPosition = targetTransform.position;
             }
 
             if(rigidBodyToMove != null)
             {
-                animator.SetBool("isMove", true);
+                //animator.SetBool("isMove", true);
                 Vector3 newPosition = Vector3.MoveTowards(rigidBodyToMove.position, endPosition, speed * Time.deltaTime);
 
                 Rb.MovePosition(newPosition);
                 remainingDistance = (transform.position - endPosition).sqrMagnitude;
-            }
-            if(remainingDistance >= attackRange)
-            {
-                animator.SetBool("isAttack", true);
-            }
-            else if(remainingDistance < attackRange)
-            {
-                animator.SetBool("isAttack", false);
             }
             yield return new WaitForFixedUpdate();
         }
@@ -119,8 +121,6 @@ public class Enemy_Wander : MonoBehaviour
         }
     }
 
-
-
     void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
@@ -136,14 +136,30 @@ public class Enemy_Wander : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            animator.SetBool("isAttack", true);
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            animator.SetBool("isAttack", false);
+        }
+    }
+
     void OnDrawGizmos()
     {
         if(_circleCollider2D != null)
         {
+            Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(transform.position, _circleCollider2D.radius);
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, attackRange);
-
+            Gizmos.DrawWireSphere(transform.position, _capsuleCollider2D.size.x/2);
         }
     }
 }

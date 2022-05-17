@@ -48,7 +48,10 @@ public class GrappingHook : MonoBehaviour
             }
 
         }
-        else if (isHookActive && isLineMax && !isAttach) ;
+        else if (isHookActive && isLineMax && !isAttach)
+        {
+
+        }
     }
 }
 

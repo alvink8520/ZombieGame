@@ -5,13 +5,16 @@ using UnityEngine.InputSystem;
 
 public class PlayerAction : MonoBehaviour
 {
+    private spawner _spawner;
+
+
     public Animator myAnimator;
     public Rigidbody2D myrigidbody;
     public Rigidbody2D rotationrigidbody;
     public BoxCollider2D mycollider2D;
 
     public float moveSpeed = 5f;
-    public string weapontype    ;
+    public string weapontype;
 
     public bool meleeAttack;
     public bool rangedAttack;
@@ -51,7 +54,6 @@ public class PlayerAction : MonoBehaviour
 
     public void OnMove(InputValue moveInput)
     {
-
 
         if (lookVector.magnitude == 0)
         {
@@ -104,36 +106,39 @@ public class PlayerAction : MonoBehaviour
         print("Attack!!");
     }
 
-
-    public void OnTriggerStay2D(Collider2D other)
+    void OnCollisionStay2D(Collision2D collision)
     {
-        if (lookVector.magnitude != 0 && other.tag == "Enemy")
+        if (lookVector.magnitude != 0 && collision.gameObject.CompareTag("Enemy"))
         {
-            GameObject.Destroy(other.gameObject);
+
+            //temp solution, need to change in to damage int
+            _spawner.EnemyAmountUpdate(-1);
+                
+            GameObject.Destroy(collision.gameObject);
         }
     }
 
     public void Attack(Collider2D other)
     {
-        GameObject.Destroy(other);
-        print("hit");
-        if (other.tag == "Enemy")
-        {
-            GameObject.Destroy(other);
-            print("hit");
-        }
-        if (meleeAttack == true)
-        {
-            if(other.tag == "Enemy")
-            {
-                GameObject.Destroy(other);
-                print("hit");
-            }
-            return;
-        }
-        else if (rangedAttack == true)
-        {
-            return;
-        }
+        //GameObject.Destroy(other);
+        //print("hit");
+        //if (other.tag == "Enemy")
+        //{
+        //    GameObject.Destroy(other);
+        //    print("hit");
+        //}
+        //if (meleeAttack == true)
+        //{
+        //    if(other.tag == "Enemy")
+        //    {
+        //        GameObject.Destroy(other);
+        //        print("hit");
+        //    }
+        //    return;
+        //}
+        //else if (rangedAttack == true)
+        //{
+        //    return;
+        //}
     }
 }
