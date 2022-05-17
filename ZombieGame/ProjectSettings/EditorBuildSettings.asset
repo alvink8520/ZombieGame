@@ -5,21 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Start.unity
-    guid: 5af7345bfa1d29e4889dbc80f1199520
+  - enabled: 1
+    path: Assets/Scenes/LobbyScene.unity
+    guid: 1be98bb239a55e548a1ad871b0a2c53d
+  - enabled: 1
+    path: Assets/Scenes/SchoolScene.unity
+    guid: a2829110f95277b43b3f382a7cc34c1e
   - enabled: 1
     path: Assets/Scenes/SampleScene/ChaeYeon/Game.unity
     guid: fadcfaa98ebc96d409ace2c9b6929194
-  - enabled: 0
-    path: Assets/Scenes/Game_1.unity
-    guid: 64ce685e5150f5a4fb5a9cf91d52317d
   - enabled: 1
-    path: Assets/Scenes/SampleScene/Alvin/SampleScene.unity
+    path: Assets/Scenes/SampleScene/Alvin/alvinGame.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: Assets/Scenes/GameOver.unity
-    guid: 9744e264add5a044090175a619e02c73
   - enabled: 0
     path: Assets/TopDownEngine/Demos/StartScreen/StartScreen.unity
     guid: 52360e1567e3fee418407abdfd132d73
@@ -134,9 +131,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene/SuBi/GameScene.unity
     guid: 1fc41091a68676e429485872b69194e0
-  - enabled: 0
-    path: Assets/Scenes/SampleScene/SuBi/SettingScene.unity
-    guid: 0df709feda185ce448afe4109b782880
   - enabled: 1
     path: Assets/Scenes/SampleScene/SuBi/CreditsScene.unity
     guid: c1c0e437c0040644ba140ea1ec886f62

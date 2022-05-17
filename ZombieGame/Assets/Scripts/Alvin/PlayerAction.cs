@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerAction : MonoBehaviour
 {
-    private spawner _spawner;
-
+    public spawner _spawner;
+    GameObject gamemanager;
 
     public Animator myAnimator;
     public Rigidbody2D myrigidbody;
@@ -20,10 +20,12 @@ public class PlayerAction : MonoBehaviour
     public bool rangedAttack;
 
     private Vector2 lookVector;
-    private Vector2 moveVector;
+    private Vector2 moveVector; 
 
     void Start()
     {
+        gamemanager = GameObject.Find("GameManager");
+        _spawner = gamemanager.GetComponent<spawner>();
         myrigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         mycollider2D = GetComponent<BoxCollider2D>();
@@ -110,11 +112,10 @@ public class PlayerAction : MonoBehaviour
     {
         if (lookVector.magnitude != 0 && collision.gameObject.CompareTag("Enemy"))
         {
+            GameObject.Destroy(collision.gameObject);
 
             //temp solution, need to change in to damage int
             _spawner.EnemyAmountUpdate(-1);
-                
-            GameObject.Destroy(collision.gameObject);
         }
     }
 

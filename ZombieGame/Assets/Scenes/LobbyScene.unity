@@ -810,7 +810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1da18e9221c6e4749967ebf49d10a041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScenetoGo: Game
+  ScenetoGo: alvinGame
   PanneltoOpen: {fileID: 0}
 --- !u!114 &1289381821
 MonoBehaviour:
